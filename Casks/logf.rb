@@ -3,7 +3,7 @@ cask "logf" do
   name "logf"
   desc "Interactive JSON log viewer for the terminal"
   homepage "https://github.com/Johannes-Krabbe/logf"
-  version "0.1.1"
+  version "0.1.2"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,23 +14,27 @@ cask "logf" do
   on_macos do
     on_intel do
       url "https://github.com/Johannes-Krabbe/logf/releases/download/v#{version}/logf_#{version}_darwin_amd64.tar.gz"
-      sha256 "73335c567799af14e21575354e3e1e50ad5c552a5f4174156997f3ec46fe9aab"
+      sha256 "ba72a098a48498d2dd3988e07055d44b8199e9fc1caa78cef4eb37168e302018"
     end
     on_arm do
       url "https://github.com/Johannes-Krabbe/logf/releases/download/v#{version}/logf_#{version}_darwin_arm64.tar.gz"
-      sha256 "e8b0e8902dc613eacae55aa0135ff901462be34f1a6ef52996b1bf99c16567f1"
+      sha256 "ca49e9a11e22d88322d62cb31b27a8bb9398f2dd8b79b8020fbea8d4ece056f3"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/Johannes-Krabbe/logf/releases/download/v#{version}/logf_#{version}_linux_amd64.tar.gz"
-      sha256 "6942ceae76bf5627567ff1b1995b1f3e1b488efe390d110100f0b60938459728"
+      sha256 "905d44f85f545078b180bc9ea0f425d87aa9f265c23357841f07e6b50797ca53"
     end
     on_arm do
       url "https://github.com/Johannes-Krabbe/logf/releases/download/v#{version}/logf_#{version}_linux_arm64.tar.gz"
-      sha256 "a0588c3e67fd6cca9b5180a833831cdcda774078839222096463e19ae19bf1a4"
+      sha256 "6afa2c212b86e7119218119b031af7adf1e95ca76486ce5f361772acd1ed7ee5"
     end
+  end
+
+  postflight do
+    system_command "/usr/bin/xattr", args: ["-d", "com.apple.quarantine", "#{staged_path}/logf"]
   end
 
   # No zap stanza required
