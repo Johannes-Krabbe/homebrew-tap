@@ -1,8 +1,8 @@
 # The template for Casks/tectr.rb in johannes-krabbe/homebrew-tap. scripts/release.sh
 # fills in the version and checksum, so edit this file rather than the tap's copy.
 cask "tectr" do
-  version "0.2.0"
-  sha256 "eb1bc33c5c6b567bf211988be538109ee45bd7a7bec72d29d9ea39d46266ca08"
+  version "0.3.0"
+  sha256 "08705f3cfd7599d7a69fe8fb4b1efdd824e5f5ff52f7a6d6bdd2dec99bc01368"
 
   url "https://github.com/Johannes-Krabbe/tectr/releases/download/v#{version}/tectr_#{version}_darwin_arm64.tar.gz"
   name "tectr"
